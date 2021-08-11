@@ -1,0 +1,21 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+
+  required_version = ">= 0.13"
+}
+
+provider "aws" {
+  region = "us-east-1"
+  profile = "insights"
+}
+
+resource "aws_s3_bucket" "testbucketterraforminsights" {
+  tags = {
+    Name = "Test_bucket_terraform_insigths"
+  }
+}
